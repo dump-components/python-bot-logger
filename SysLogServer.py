@@ -3,10 +3,9 @@ import logging.handlers
 class SysLogServer:
 
 
-    host = 'syslog.fipo.com.br'
-
-    def __init__(self) -> None:
-        self._graylog = logging.handlers.SysLogHandler(self.host)
+    def __init__(self, syslog_host: str) -> None:
+        self.__host = syslog_host
+        self._graylog = logging.handlers.SysLogHandler(self.__host)
         
     @property
     def graylog(self):
